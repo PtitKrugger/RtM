@@ -1,0 +1,49 @@
+<h1>Remember the Milk</h1>
+
+<div id="taches">
+  <%= link_to "Toutes", "#{request.path}"%> |
+  <%= link_to "Tâches effectuées", "#{request.path}?etat=1"%> |
+  <%= link_to "Tâches incomplètes", "#{request.path}?etat=2"%> <br><br>
+  <table class="table">
+    <thead>
+      <tr>        
+        <th><%= link_to "État#{afficheFleche("etat")}", "#{request.path}?col=etat", class: "link_to-no-deco"%></th>
+        <th></th>
+        <th>Descriptif</th>
+        <th><%= link_to "Date de Création#{afficheFleche("date_crea")}", "#{request.path}?col=date_crea", class: "link_to-no-deco"%></th>
+        <th><%= link_to "Date prévue#{afficheFleche("date_prevue")}", "#{request.path}?col=date_prevue", class: "link_to-no-deco"%></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @taches.each do |tache| %>
+        <%= render tache %>
+          <td>
+            <%= link_to "Plus d'infos", tache %>
+          </td>
+        </tr>
+      <% end %>
+      <tr hidden id="ajout">
+        <%= form_for(Tache.new) do |form| %>
+          <td>----------<%= form.hidden_field :etat_id, :value => 2 %></td>
+          <td><%= form.collection_select :importance_id, Importance.all, :id, :descriptif, style: "display: block"%></td>
+          <td><%= form.text_field :descriptif %></td>
+          <td>--------------------</td>
+          <td><%= form.datetime_field :date_prevue %></td>
+          <td><%= form.submit "Créer"%></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br><%= link_to "Créer une tâche", new_tache_path %>
+<br><span>--------------------</span>
+<br><input type="button" value="Créer tâche dynamique" onclick="afficheCreerTache()">
+
+<script>
+  var afficheCreerTache = function() {
+    var row = document.getElementById('ajout');
+    row.removeAttribute("hidden");
+}
+</script>

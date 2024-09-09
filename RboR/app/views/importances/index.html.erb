@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Importances</h1>
+
+<div id="importances">
+  <% @importances.each do |importance| %>
+    <%= render importance %>
+    <p>
+      <%= link_to "Show this importance", importance %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New importance", new_importance_path %>

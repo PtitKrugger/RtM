@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <%= tache.etat.etat %>
+  </td>
+
+  <td>
+    <span style="background-color:<%= tache.importance&.codecouleur %>; white-space: pre;">  </span>
+  </td>
+
+  <td>
+    <%= tache.descriptif %>
+  </td>
+
+  <td>
+    <%= l tache.created_at %>
+  </td>
+
+  <td>
+    <%= l tache.date_prevue %>
+  </td>

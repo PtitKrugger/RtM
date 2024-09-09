@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @importance %>
+
+<div>
+  <%= link_to "Edit this importance", edit_importance_path(@importance) %> |
+  <%= link_to "Back to importances", importances_path %>
+
+  <%= button_to "Destroy this importance", @importance, method: :delete %>
+</div>

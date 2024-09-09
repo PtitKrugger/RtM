@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="taches">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>État</th>
+        <th></th>
+        <th>Descriptif</th>
+        <th>Date de Création</th>
+        <th>Date prévue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @tache %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <br><%= link_to "Éditer cette tâche", edit_tache_path(@tache) %> |
+  <%= link_to "Retour", taches_path %>
+
+  <br><br><%= button_to "Supprimer cette tâche", @tache, method: :delete %>
+</div>

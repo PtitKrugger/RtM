@@ -1,0 +1,49 @@
+// app global css in SCSS form
+body {
+    text-align: center;
+}
+
+.lienClick {
+    color:#551a8b; 
+    text-decoration: underline;
+}
+
+.lienClick:active {
+    color:#ee0000; 
+    text-decoration: underline;
+}
+
+.q-page-container {
+    padding-top: 0px!important;
+}
+
+.q-toolbar__title {
+    font-size: 23px;
+}
+
+.q-table__title {
+    font-size: 22px;
+}
+
+.q-table__top, .q-table__bottom {
+    justify-content: center;
+    background-color: rgb(25, 118, 210, 0.85);
+    color: white;
+}
+
+.q-table thead th {
+    font-size: 15px;
+}
+
+table {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+table tbody tr:nth-of-type(odd) {
+    background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #362f4b;
+}
